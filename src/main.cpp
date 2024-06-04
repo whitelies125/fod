@@ -11,9 +11,9 @@ const Item g_item[] = {
     {"code", "C:\\Users\\whitelies125\\root\\program\\Code"},
     {"downloads", "C:\\Users\\whitelies125\\Downloads"},
     {"powershell", "C:\\Users\\whitelies125\\Documents\\WindowsPowerShell"},
-
-    // help
-    {"list", ""},
+    {"markdown", "C:\\Users\\whitelies125\\root\\note\\markdown"},
+    {"nvim", "C:\\Users\\whitelies125\\AppData\\Local\\nvim"},
+    {"game", "C:\\Users\\whitelies125\\root\\game"},
 };
 
 int main(int argc, char *argv[])
@@ -27,6 +27,12 @@ int main(int argc, char *argv[])
             std::cout << path << std::endl;
             return 0;
         }
+    }
+    if (std::string("list").starts_with(argv[1])) {
+        for (const auto& [match_name, path] : g_item){
+            std::cout << match_name << " : " << path << std::endl;
+        }
+        return 1;
     }
     return 1;
 }
