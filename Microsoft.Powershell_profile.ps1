@@ -7,12 +7,19 @@ function rewrite_cd (
     [Parameter(Mandatory=$true)]
     [string] $string
 ){
+    if (Test-Path -Path $string -PathType Container) {
+        # 如果当前目录下已存在同名文件夹，直接切换
+        Set-Location -Path $string
+        return
+    }
+
     $exe_path = "fod"
     if (-not (Get-Command $exe_path -ErrorAction SilentlyContinue)) {
         Write-Host "fod.exe not found. make sure fod.exe in your system environment path."
         Set-Location -Path $string
         return
     }
+
     $cmd = "& '$exe_path' '$string'"
     Invoke-Expression $cmd -OutVariable stdOut | Out-Null
     if($LASTEXITCODE -eq 0) {
