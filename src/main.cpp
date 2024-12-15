@@ -14,6 +14,7 @@ const Item g_item[] = {
     {"markdown", "C:\\Users\\whitelies125\\root\\note\\markdown"},
     {"nvim", "C:\\Users\\whitelies125\\AppData\\Local\\nvim"},
     {"game", "C:\\Users\\whitelies125\\root\\game"},
+    {"nvimconfig", "C:\\Users\\whitelies125\\AppData\\Local\\nvim"},
 };
 
 int main(int argc, char *argv[])
