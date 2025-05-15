@@ -10,11 +10,11 @@ OBJ_CXX := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o,$(SRC_CXX))
 # 可简写为
 # OBJ_CXX := $(SRC_CXX:$(SRC_DIR)%.cpp=$(BUILD_DIR)/%.o)
 
-CXX_FLAGS := -std=c++20 -Wall
+CXX_FLAGS := -std=c++23 -Wall
 
 # $^ : 比 target 新的所有 prerequisites
 $(BUILD_DIR)/$(TARGET) : $(OBJ_CXX)
-	$(CXX) -o $@ $^
+	$(CXX) -o $@ $^ $(CXX_FLAGS)
 # $@ : target
 # $^ : prerequisites 中的第一个 prerequisite
 $(BUILD_DIR)/%.o : $(SRC_DIR)/%.cpp
